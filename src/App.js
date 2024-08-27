@@ -1,5 +1,5 @@
 import React, {useState} from  'react';
-
+import './App.css';
 const App = ()=>{
   const [currentData, setValue] = useState('');
   const [data , storeElement] = useState([]);
@@ -17,7 +17,7 @@ const App = ()=>{
     
   }
   function delText(i){
-      const updatedData = data.filter((ele,id)=>{
+      const updatedData = data.filter((_,id)=>{
         return id!== i;
       })
       storeElement(updatedData);
@@ -37,7 +37,7 @@ const App = ()=>{
         <button className="add-button" onClick={storeValue}>ADD</button>
         {data.length > 0 && (
           <ul>
-            {data.map((item, index) => (
+            {data.map((item, index,data) => (
               <li key={index}>{item}
               <button className='del-button' onClick={()=>{
                 delText(index)
